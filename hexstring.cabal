@@ -1,59 +1,60 @@
-name: hexstring
-category: Data
-version: 0.11.1
-license: MIT
-license-file: LICENSE
-copyright: (c) 2015 Leon Mergen
-author: Leon Mergen
-maintainer: leon@solatis.com
-homepage: http://www.leonmergen.com/opensource.html
-bug-reports: http://github.com/solatis/haskell-hexstring/issues
-stability: experimental
-synopsis: Fast and safe representation of a hex string
-description:
-            Provides an interface for converting any object that has a 'Binary' instance
-            to and from a hexadecimal Text representation.
-                      
-build-type: Simple
-data-files: LICENSE, README.md
-cabal-version: >= 1.10
-tested-with: GHC == 7.6, GHC == 7.8, GHC == 7.10
+cabal-version: 1.12
 
-library
-  hs-source-dirs:      src
-  ghc-options:         -Wall -ferror-spans
-  default-language:    Haskell2010
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
 
-  exposed-modules:     Data.HexString
-  
-  build-depends:       base                     >= 4.3          && < 5
-                     , binary 
-                     , text
-                     , bytestring
-                     , base16-bytestring
-                     , aeson
-
-test-suite test-suite
-  type:                exitcode-stdio-1.0
-  ghc-options:         -Wall -ferror-spans -threaded -auto-all -caf-all -fno-warn-type-defaults
-  default-language:    Haskell2010
-  hs-source-dirs:      test
-  main-is:             Main.hs
-
-  other-modules:       Data.HexStringSpec
-                       Spec
-                       Main
-
-  build-depends:       base                     >= 4.3          && < 5
-                     , hspec
-                     , text
-
-                     , bytestring
-                     , binary
-                     
-                     , hexstring
+name:           hexstring
+version:        0.12.0
+synopsis:       Fast and safe representation of a hex string
+description:    Provides an interface for converting any object that has a 'Binary' instance to and from a hexadecimal Text representation.
+author:         Rene Vergara,
+                Leon Mergen
+maintainer:     pitmutt@vergara.tech
+copyright:      (c) 2015 Leon Mergen,
+                (c) 2024 Rene Vergara
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
 
 source-repository head
   type: git
-  location: git://github.com/solatis/haskell-bitcoin-script.git
-  branch: master
+  location: https://git.vergara.tech/Vergara_Tech/haskell-hexstring
+
+library
+  exposed-modules:
+      Data.HexString
+  other-modules:
+      Paths_hexstring
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , base16-bytestring
+    , binary
+    , bytestring
+    , text
+  default-language: Haskell2010
+
+test-suite hextring-test
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Data.HexStringSpec
+      Spec
+      Paths_hexstring
+  hs-source-dirs:
+      test
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , base16-bytestring
+    , binary
+    , bytestring
+    , hexstring
+    , hspec
+    , text
+  default-language: Haskell2010
