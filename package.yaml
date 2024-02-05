@@ -1,0 +1,42 @@
+name: hexstring
+version: 0.12.0
+git: "https://git.vergara.tech/Vergara_Tech/haskell-hexstring"
+license: MIT
+author:
+  - "Rene Vergara"
+  - "Leon Mergen"
+maintainer: "pitmutt@vergara.tech"
+copyright:
+  - "(c) 2015 Leon Mergen"
+  - "(c) 2024 Rene Vergara"
+
+extra-source-files:
+- README.md
+
+synopsis: Fast and safe representation of a hex string
+description: Provides an interface for converting any object that has a 'Binary' instance to and from a hexadecimal Text representation.
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - binary
+    - text
+    - bytestring
+    - base16-bytestring
+    - aeson
+
+tests:
+  hextring-test:
+    main: Main.hs
+    source-dirs: test
+    dependencies:
+      - hexstring
+      - binary
+      - text
+      - bytestring
+      - base16-bytestring
+      - aeson
+      - hspec
